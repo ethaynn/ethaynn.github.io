@@ -18,16 +18,52 @@
       font-family: 'Poppins', sans-serif;
       background-color: #000;
       color: #fff;
+      text-align: center;
+    }
+
+    .navbar {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      gap: 2rem;
+      padding: 1rem 2rem;
+      border-bottom: 2px solid white;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #000;
+      z-index: 10;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: opacity 0.3s ease;
+    }
+
+    .navbar a:hover {
+      opacity: 0.7;
+    }
+
+    .content {
       display: flex;
       justify-content: center;
       align-items: center;
-      text-align: center;
       flex-direction: column;
+      height: 100vh;
+      padding-top: 80px; /* space for navbar */
     }
 
     h1 {
       font-size: 2.5rem;
       padding: 1rem;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #fff;
+      opacity: 0.8;
     }
 
     .profile-img {
@@ -44,9 +80,7 @@
 
     @media (max-width: 768px) {
       h1 {
-        display: block;
         font-size: 2rem;
-        font-weight: bold;
       }
       .profile-img {
         width: 150px;
@@ -66,7 +100,15 @@
   </style>
 </head>
 <body>
-  <img class="profile-img" src="https://cdn.discordapp.com/avatars/1165581443943108640/0a0dad338cf6773df51c078a60f5bc03.webp?size=1024&width=640&height=640" alt="Profile Image" />
-  <h1>hi, i'm slycey</h1>
+  <div class="navbar">
+    <a href="/">Home</a>
+    <a href="https://github.com/slycey" target="_blank">GitHub</a>
+  </div>
+
+  <div class="content">
+    <img class="profile-img" src="https://cdn.discordapp.com/avatars/1165581443943108640/0a0dad338cf6773df51c078a60f5bc03.webp?size=1024&width=640&height=640" alt="Profile Image" />
+    <h1>hi, i'm slycey</h1>
+    <p>i am a coder and content creator (im a goofy lil guy)</p>
+  </div>
 </body>
 </html>
