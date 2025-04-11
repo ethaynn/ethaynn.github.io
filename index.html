@@ -458,5 +458,42 @@
     // Call the function on page load
     window.onload = fetchLatestVideos;
   </script>
+
+  <script>
+    // JavaScript for hiding navbar on scroll
+    let lastScrollTop = 0;
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", function() {
+      let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      
+      if (currentScroll > lastScrollTop) {
+        navbar.style.top = "-100px";  // Hide navbar when scrolling down
+      } else {
+        navbar.style.top = "0";  // Show navbar when scrolling up
+      }
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;  // Ensure scroll position isn't negative
+    });
+
+    // JavaScript for scroll-to-top button visibility
+    const scrollToTopBtn = document.createElement("button");
+    scrollToTopBtn.innerHTML = "↑";
+    scrollToTopBtn.classList.add("scroll-to-top");
+    document.body.appendChild(scrollToTopBtn);
+
+    // Show the button when scrolling down
+    window.onscroll = function() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        scrollToTopBtn.style.display = "block";
+      } else {
+        scrollToTopBtn.style.display = "none";
+      }
+    };
+
+    // Scroll to top when button is clicked
+    scrollToTopBtn.onclick = function() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+  </script>
 </body>
 </html>
