@@ -394,71 +394,12 @@
         <button class="social-button">Join Now</button>
       </div>
 
-    <!-- Latest YouTube Videos Section -->
-    <div class="latest-videos">
-      <br>
-      <h2>latest videos</h2>
-      <div class="video-box" id="video-container"></div>
-    </div>
-  </div>
-
   <div class="footer">
     <p>&copy; 2025 Slycey | Made with <span style="color: #e74c3c;">&hearts;</span></p>
   </div>
 
   <button class="scroll-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">&#8679;</button>
-
-  <script>
-    // YouTube API Key and Channel ID
-    const API_KEY = 'AIzaSyAJ-V2zGNUGPEtOR0yYAzQNzSawnFCchyc'; // Replace with your YouTube API key
-    const CHANNEL_ID = 'UCXHUc9G7gEZSy-UHJwVpSZw'; // Replace with your YouTube channel ID
-    const MAX_RESULTS = 3; // Number of videos to display
-
-    // Function to fetch latest videos from YouTube channel
-    async function fetchLatestVideos() {
-  try {
-    const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&order=date&part=snippet&type=video&maxResults=${MAX_RESULTS}`;
-    const response = await fetch(url);
-
-    if (!response.ok) {
-      throw new Error('Failed to fetch videos');
-    }
-
-    const data = await response.json();
-
-    if (data.items && data.items.length > 0) {
-      const videoContainer = document.getElementById('video-container');
-      data.items.forEach(video => {
-        const videoId = video.id.videoId;
-        const videoTitle = video.snippet.title;
-        const videoThumbnail = video.snippet.thumbnails.high.url;
-
-        // Exclude YouTube Shorts
-        if (!videoId.includes('shorts')) {
-          const videoElement = document.createElement('div');
-          videoElement.classList.add('video');
-          videoElement.innerHTML = `
-            <img src="${videoThumbnail}" alt="${videoTitle}" />
-            <div class="video-title">${videoTitle}</div>
-            <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank">
-              <button class="watch-now-btn">Watch Now</button>
-            </a>
-          `;
-          videoContainer.appendChild(videoElement);
-        }
-      });
-    } else {
-      console.log('No videos found.');
-    }
-  } catch (error) {
-    console.error('Error fetching videos:', error);
-  }
-}
-
-    // Call the function on page load
-    window.onload = fetchLatestVideos;
-  </script>
-
+  
   <script>
     // JavaScript for hiding navbar on scroll
     let lastScrollTop = 0;
