@@ -28,6 +28,7 @@ body.high-contrast {
 }
 
 body.high-contrast .project-card,
+body.high-contrast .education-item,
 body.high-contrast header,
 body.high-contrast footer {
   background-color: var(--high-contrast-bg);
@@ -50,9 +51,9 @@ html {
 }
 
 body {
-  background-color: var(--bg);
+  background: var(--header-gradient);;
   color: var(--text);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   width: 100%;
   line-height: 1.6;
@@ -200,15 +201,20 @@ body.dark-mode #accessibility-toggle {
 
 /* Header */
 header {
-  background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+  background: var(--header-gradient);
   padding: 3rem 1rem 2rem;
   background-color: var(--card);
   text-align: center;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   margin-bottom: 2rem;
 }
 
 /* Hero section */
+.hero {
+  padding-top: 3rem;
+  transition: padding-top 0.3s ease;
+}
+
 .hero .profile-pic {
   width: 120px;
   height: 120px;
@@ -218,6 +224,11 @@ header {
   margin-bottom: 1rem;
   transition: transform 0.3s ease;
 }
+
+.hero img {
+  border-radius: 50%;
+}
+
 .hero .profile-pic:hover {
   transform: scale(1.05);
 }
@@ -426,10 +437,11 @@ h2 {
 footer {
   text-align: center;
   padding: 2rem 1rem;
-  background-color: var(--footer);
+  background: var(--header-gradient);
   color: var(--text);
   font-size: 0.9rem;
   user-select: none;
+  box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* Scroll reveal animations */
@@ -497,6 +509,7 @@ a:hover {
   margin: 0;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   box-sizing: border-box;
+  padding-top: 1.5rem;
 }
 
 .navbar.scrolled {
@@ -506,6 +519,39 @@ a:hover {
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 10px rgba(0,0,0,0.15);
 }
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: center; /* center horizontally */
+}
+
+.nav-links a {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: rgba(255, 255, 255, 0.2); /* translucent bg */
+  color: var(--text-on-blur); /* new variable for contrast */
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(6px); /* frosted effect */
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+
 
 /* === SECTION HEADING ANIMATIONS === */
 section h2 {
@@ -549,12 +595,14 @@ section.visible h2 {
 :root {
   --primary-color: #FF4081;       /* example pink */
   --button-text-color: #fff;
+  --header-gradient: linear-gradient(90deg, #b3cde0 0%, #f0f4f8 100%);
 }
 
 /* Dark mode overrides */
 body.dark-mode {
   --primary-color: #FF4081;
   --button-text-color: #fff;
+  --header-gradient: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
 }
 
 /* Hover/focus states */
