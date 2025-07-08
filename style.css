@@ -1,0 +1,442 @@
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --bg: #fdfdfd;
+  --text: #1a1a1a;
+  --primary: #a263ff;
+  --accent: #ff8aa6;
+  --card: #ffffff;
+  --footer: #eee;
+
+  /* Accessibility variables */
+  --high-contrast-bg: #000;
+  --high-contrast-text: #fff;
+}
+
+body.dark-mode {
+  --bg: #1a1a1a;
+  --text: #f0f0f0;
+  --card: #2a2a2a;
+  --footer: #2a2a2a;
+}
+
+body.high-contrast {
+  background-color: var(--high-contrast-bg);
+  color: var(--high-contrast-text);
+}
+
+body.high-contrast .project-card,
+body.high-contrast header,
+body.high-contrast footer {
+  background-color: var(--high-contrast-bg);
+  color: var(--high-contrast-text);
+  border: 2px solid var(--high-contrast-text);
+}
+
+body.large-text {
+  font-size: 1.2rem;
+}
+
+body.reduce-motion * {
+  transition: none !important;
+  animation-duration: 0s !important;
+  scroll-behavior: auto !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Dark mode toggle button */
+#theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer;
+  z-index: 999;
+  color: var(--accent);
+  user-select: none;
+}
+
+/* =================== Accessibility Menu =================== */
+#accessibility-menu {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  user-select: none;
+}
+
+/* Accessibility Toggle Button (♿) */
+#accessibility-toggle {
+  background: transparent !important;
+  color: var(--accent);
+  border: 2.5px solid var(--accent);
+  padding: 0.45rem 0.6rem;
+  border-radius: 50%;
+  font-size: 1.35rem;
+  cursor: pointer;
+  box-shadow: none !important;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  filter: none !important;
+  user-select: none;
+  outline-offset: 2px;
+}
+
+#accessibility-toggle svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  vertical-align: middle;
+}
+
+/* Remove default focus outline but add custom */
+#accessibility-toggle:focus {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  background-color: var(--accent);
+  color: white;
+}
+
+/* Hover */
+#accessibility-toggle:hover {
+  background-color: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+/* Dark mode override for toggle button */
+body.dark-mode #accessibility-toggle {
+  background: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Accessibility Panel Container */
+#accessibility-panel {
+  margin-top: 0.6rem;
+  background-color: var(--card);
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  padding: 0.8rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  width: 170px;
+  user-select: none;
+}
+
+/* Hide panel when [hidden] attribute set */
+#accessibility-panel[hidden] {
+  display: none;
+}
+
+/* Buttons inside panel */
+#accessibility-panel button {
+  background-color: var(--bg);
+  color: var(--text);
+  border: 2px solid var(--accent);
+  padding: 0.45rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 
+    background-color 0.3s ease, 
+    color 0.3s ease, 
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: none;
+  user-select: none;
+  outline-offset: 2px;
+}
+
+/* ACTIVE state — only when aria-pressed="true" */
+#accessibility-panel button[aria-pressed="true"] {
+  background-color: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+}
+
+/* Hover and focus for non-active buttons */
+#accessibility-panel button:not([aria-pressed="true"]):hover,
+#accessibility-panel button:not([aria-pressed="true"]):focus {
+  background-color: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  box-shadow: 0 0 6px var(--primary);
+}
+
+/* Header */
+header {
+  background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+  padding: 3rem 1rem 2rem;
+  background-color: var(--card);
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+  margin-bottom: 2rem;
+}
+
+/* Hero section */
+.hero .profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+.hero .profile-pic:hover {
+  transform: scale(1.05);
+}
+
+.hero h1 {
+  margin: 0.3rem 0 1rem;
+  font-size: 2.25rem;
+  color: var(--primary);
+}
+
+nav a {
+  margin: 0 0.9rem;
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.25s ease;
+  user-select: none;
+}
+nav a:hover,
+nav a:focus {
+  color: var(--accent);
+  outline-offset: 2px;
+  outline: 2px solid var(--accent);
+  border-radius: 4px;
+}
+
+.socials a {
+  display: inline-flex;           /* Use inline-flex to shrink-wrap */
+  align-items: center;            /* Vertically center */
+  justify-content: center;        /* Horizontally center */
+  width: 40px;                    /* fixed width to make it button-like */
+  height: 40px;                   /* fixed height */
+  border-radius: 6px;             /* rounded corners if you want */
+  background-color: var(--card); /* or your button background */
+  color: var(--text);             /* icon color */
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  user-select: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.socials a svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;             /* inherit text color */
+  display: block;                 /* remove any inline gaps */
+}
+
+.socials a:hover,
+.socials a:focus {
+  color: var(--accent);
+  outline-offset: 2px;
+  outline: 2px solid var(--accent);
+  border-radius: 4px;
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto 4rem;
+  padding: 0 1rem;
+}
+
+h2 {
+  font-size: 1.9rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.about-section {
+  padding: 60px 20px;
+  background-color: var(--background-secondary);
+  display: flex;
+  justify-content: center;
+}
+
+/* Default speech bubble */
+.speech-bubble {
+  position: relative;
+  background: var(--background-primary);
+  color: var(--text-color);
+  padding: 30px 40px;
+  border-radius: 20px;
+  max-width: 700px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: left;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Speech bubble tail */
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -25px;
+  left: 40px;
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+  border-top-color: var(--background-primary);
+  filter: drop-shadow(0 3px 3px rgba(0,0,0,0.1));
+  transition: border-top-color 0.3s ease, filter 0.3s ease;
+}
+
+/* Dark mode enhancements */
+body.dark-mode .speech-bubble {
+  background: #2a2a3d; /* lighter than background-primary but still dark */
+  box-shadow: 0 0 20px 2px rgba(130, 130, 255, 0.6); /* soft glowing blue-ish shadow */
+  border: 1px solid rgba(130, 130, 255, 0.4); /* subtle border to pop */
+}
+
+body.dark-mode .speech-bubble::after {
+  border-top-color: #2a2a3d;
+  filter: drop-shadow(0 0 8px rgba(130, 130, 255, 0.6));
+}
+
+/* Light mode enhancements */
+body:not(.dark-mode) .speech-bubble {
+  background: #f0f4ff; /* very light blueish tint */
+  box-shadow: 0 8px 20px rgba(100, 100, 150, 0.15); /* soft shadow */
+  border: 1px solid #c2c9e8; /* subtle pastel border */
+}
+
+body:not(.dark-mode) .speech-bubble::after {
+  border-top-color: #f0f4ff;
+  filter: drop-shadow(0 3px 3px rgba(100, 100, 150, 0.1));
+}
+
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  gap: 1.2rem;
+  margin-bottom: 80px;
+}
+
+.project-card {
+  background-color: var(--card);
+  border-radius: 12px;
+  padding: 1rem 1.4rem;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.project-card:hover,
+.project-card:focus-within {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.education-section {
+  background-color: var(--background-secondary);
+  color: var(--text-color); 
+  margin-bottom: 80px;
+}
+
+.education-section .container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.education-item {
+  background-color: var(--card);
+  padding: 25px 30px;
+  border-radius: 15px;
+  margin-bottom: 1.8rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  text-align: left;
+  transition: background-color 0.3s ease;
+}
+
+.education-item h3 {
+  margin-bottom: 0.3rem;
+  color: var(--primary-color);
+  font-size: 1.6rem;
+}
+
+.institution {
+  font-style: italic;
+  color: var(--secondary-text-color);
+  margin-bottom: 0.2rem;
+}
+
+.dates {
+  font-size: 0.9rem;
+  color: var(--secondary-text-color);
+  margin-bottom: 1rem;
+}
+
+.education-item p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+.education-item:hover,
+.education-item:focus-within {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: var(--footer);
+  color: var(--text);
+  font-size: 0.9rem;
+  user-select: none;
+}
+
+/* Scroll reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
