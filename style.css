@@ -503,7 +503,7 @@ a:hover {
   position: fixed !important;
   width: 100vw;
   top: 0;
-  padding: 1rem 0;
+  padding: 1.5rem 1.25rem; /* added left/right padding */
   z-index: 1000;
   margin: 0;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
@@ -521,6 +521,7 @@ a:hover {
 
 .nav-links {
   display: flex;
+  max-width: 960px;
   flex-wrap: wrap;  /* crucial to let buttons wrap on small screens */
   gap: 1rem;
   justify-content: center;
