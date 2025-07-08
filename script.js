@@ -213,3 +213,19 @@ window.addEventListener('scroll', () => {
   }
 });
 
+// JavaScript to toggle nav menu on small screens
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.querySelector(".nav-links");
+
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("open");
+  });
+
+  // Optional: close the menu when a nav link is clicked
+  document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+    });
+  });
+});

@@ -522,7 +522,7 @@ a:hover {
 
 /* Centered container inside navbar */
 .nav-container {
-  max-width: 790px;
+  max-width: 785px;
   width: 100%;
   margin: 0 auto;
   padding: 0rem 1rem; /* horizontal padding */
@@ -562,15 +562,18 @@ a:hover {
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-sizing: border-box;
+    width: 100%;
   }
 
   /* When menu open, max-height large enough to show all */
   .nav-links.open {
-    max-height: 300px; /* enough height for all links */
+  max-height: 300px;
+  padding: 1rem 0; /* only vertical padding */
   }
 
   .nav-links li {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.25rem;
   }
 
   .nav-links a {
