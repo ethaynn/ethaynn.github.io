@@ -149,3 +149,67 @@ style.innerHTML = `
   }
 `;
 document.head.appendChild(style);
+
+const text = "I'm Ethan — Student Paramedic & Creative Tech Enthusiast.";
+let index = 0;
+function type() {
+  if (index < text.length) {
+    document.getElementById("hero-text").textContent += text.charAt(index);
+    index++;
+    setTimeout(type, 40);
+  }
+}
+window.onload = type;
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+}, {
+  threshold: 0.2
+});
+
+document.querySelectorAll("section").forEach(section => {
+  observer.observe(section);
+});
+
+const navbar = document.querySelector('.navbar');
+const backToTop = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+  if(window.scrollY > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+
+  if(window.scrollY > 300) {
+    backToTop.classList.add('show');
+  } else {
+    backToTop.classList.remove('show');
+  }
+});
+
+backToTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+const placeholder = document.getElementById('navbar-placeholder');
+const navbarHeight = navbar.offsetHeight;
+
+window.addEventListener('scroll', () => {
+  if(window.scrollY > 0) {
+    navbar.style.position = 'fixed';
+    navbar.style.top = '0';
+    navbar.style.left = '0';
+    navbar.style.width = '100vw';
+
+    placeholder.style.height = `${navbarHeight}px`; // reserve space
+  } else {
+    navbar.style.position = 'relative'; // or original position
+    placeholder.style.height = '0';
+  }
+});
+

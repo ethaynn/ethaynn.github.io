@@ -29,13 +29,14 @@
   <header>
     <section class="hero" id="home">
       <img src="assets/profile.png" alt="Ethan's Profile Picture" class="profile-pic" />
-      <h1>Ethan</h1>
-      <h2>Student Paramedic - Creative Tech Enthusiast</h2>
-      <nav aria-label="Primary Navigation">
+      <h1 id="hero-text" class="hero-heading"></h1>
+
+      <nav class="navbar" aria-label="Primary Navigation">
         <a href="#home">Home</a>
         <a href="#projects">Projects</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
+
       </nav>
     </section>
   </header>
@@ -56,7 +57,7 @@
 
 
   <main>
-    <section id="projects" tabindex="-1">
+    <section id="projects">
       <h2>Projects</h2>
       <div class="project-grid">
         <article class="project-card reveal">
@@ -92,7 +93,7 @@
     </div>
     </section>
 
-    <section id="contact" tabindex="-1">
+    <section id="contact">
       <h2>Contact</h2>
       <p>Email: ethansims05@outlook.com</p>
     </section>
@@ -101,6 +102,8 @@
   <footer>
     <p>© 2025 Ethan. All rights reserved.</p>
   </footer>
+
+  <button id="backToTop" aria-label="Back to top">↑</button>
 
   <script src="script.js"></script>
 </body>
