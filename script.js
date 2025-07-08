@@ -150,7 +150,7 @@ style.innerHTML = `
 `;
 document.head.appendChild(style);
 
-const text = "I'm Ethan — Student Paramedic & Creative Tech Enthusiast.";
+const text = "👋 I'm Ethan — Student Paramedic & Creative Tech Enthusiast. 🚑🖥️";
 let index = 0;
 function type() {
   if (index < text.length) {
