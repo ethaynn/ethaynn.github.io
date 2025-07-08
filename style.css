@@ -618,3 +618,20 @@ body, html {
   width: 100%;
   overflow-x: hidden; /* prevents horizontal scroll */
 }
+
+@media (max-width: 600px) {
+  .nav-links {
+    flex-wrap: wrap;         /* allow wrapping */
+    justify-content: center; /* center nav items */
+    gap: 0.5rem;             /* reduce gap on small */
+  }
+
+  .nav-links a {
+    flex: 1 1 100%;          /* full width buttons */
+    max-width: 100%;         /* no max width */
+    text-align: center;      /* center text */
+    font-size: 1.1rem;       /* slightly bigger text */
+    padding: 0.8rem 0;       /* more padding for tap */
+    border-radius: 6px;
+  }
+}
