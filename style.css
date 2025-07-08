@@ -286,6 +286,7 @@ h2 {
   background-color: var(--background-secondary);
   display: flex;
   justify-content: center;
+  align-items: flex-start;
 }
 
 /* Default speech bubble */
@@ -303,42 +304,49 @@ h2 {
   transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Speech bubble tail */
-.speech-bubble::after {
-  content: "";
+.about-photo {
+  float: left;
+  width: 150px;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  object-fit: contain;
+  border-radius: 0;
+}
+
+/* Tail circles */
+.speech-bubble::before,
+.speech-bubble::after,
+.speech-bubble .tail-circle {
+  content: '';
   position: absolute;
-  bottom: -25px;
-  left: 40px;
-  width: 0;
-  height: 0;
-  border: 15px solid transparent;
-  border-top-color: var(--background-primary);
-  filter: drop-shadow(0 3px 3px rgba(0,0,0,0.1));
-  transition: border-top-color 0.3s ease, filter 0.3s ease;
+  background: var(--bubble-bg);
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.3); /* subtle border to separate from bg */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);    /* stronger shadow */
 }
 
-/* Dark mode enhancements */
-body.dark-mode .speech-bubble {
-  background: #2a2a3d; /* lighter than background-primary but still dark */
-  box-shadow: 0 0 20px 2px rgba(130, 130, 255, 0.6); /* soft glowing blue-ish shadow */
-  border: 1px solid rgba(130, 130, 255, 0.4); /* subtle border to pop */
+/* Largest circle */
+.speech-bubble::before {
+  width: 40px;
+  height: 40px;
+  left: -20px;
+  bottom: 20px;
 }
 
-body.dark-mode .speech-bubble::after {
-  border-top-color: #2a2a3d;
-  filter: drop-shadow(0 0 8px rgba(130, 130, 255, 0.6));
+/* Medium circle */
+.speech-bubble::after {
+  width: 30px;
+  height: 30px;
+  left: -30px;
+  bottom: 10px;
 }
 
-/* Light mode enhancements */
-body:not(.dark-mode) .speech-bubble {
-  background: #f0f4ff; /* very light blueish tint */
-  box-shadow: 0 8px 20px rgba(100, 100, 150, 0.15); /* soft shadow */
-  border: 1px solid #c2c9e8; /* subtle pastel border */
-}
-
-body:not(.dark-mode) .speech-bubble::after {
-  border-top-color: #f0f4ff;
-  filter: drop-shadow(0 3px 3px rgba(100, 100, 150, 0.1));
+/* Smallest circle */
+.speech-bubble .tail-circle {
+  width: 20px;
+  height: 20px;
+  left: -35px;
+  bottom: 0;
 }
 
 
