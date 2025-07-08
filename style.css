@@ -211,6 +211,7 @@ header {
 
 /* Hero section */
 .hero {
+  padding-top: 3rem;
   transition: padding-top 0.3s ease;
 }
 
@@ -508,7 +509,7 @@ a:hover {
   margin: 0;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   box-sizing: border-box;
-  padding-top: 2rem;
+  padding-top: 1.5rem;
 }
 
 .navbar.scrolled {
@@ -521,13 +522,16 @@ a:hover {
 
 .nav-links {
   display: flex;
+<<<<<<< HEAD
   max-width: 960px;
   flex-wrap: wrap;  /* crucial to let buttons wrap on small screens */
+=======
+>>>>>>> parent of 2c27413 (yeet)
   gap: 1rem;
-  justify-content: center;
+  list-style: none;
   padding: 0;
   margin: 0;
-  list-style: none;
+  justify-content: center; /* center horizontally */
 }
 
 .nav-links a {
@@ -621,11 +625,18 @@ body, html {
 }
 
 @media (max-width: 600px) {
+  .nav-links {
+    flex-wrap: wrap;         /* allow wrapping */
+    justify-content: center; /* center nav items */
+    gap: 0.5rem;             /* reduce gap on small */
+  }
+
   .nav-links a {
-    flex: 1 1 auto;      /* allow shrinking and growing */
-    min-width: 100px;    /* minimum size so text doesn’t squish */
-    max-width: 150px;    /* optional max-width for nicer look */
-    white-space: nowrap; /* prevent text wrap inside button */
-    text-align: center;
+    flex: 1 1 100%;          /* full width buttons */
+    max-width: 100%;         /* no max width */
+    text-align: center;      /* center text */
+    font-size: 1.1rem;       /* slightly bigger text */
+    padding: 0.8rem 0;       /* more padding for tap */
+    border-radius: 6px;
   }
 }

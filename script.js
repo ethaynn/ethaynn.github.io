@@ -196,14 +196,20 @@ backToTop.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-function adjustHeroMargin() {
-  const navbar = document.querySelector('.navbar');
-  const hero = document.querySelector('.hero');
-  if (!navbar || !hero) return;
+const placeholder = document.getElementById('navbar-placeholder');
+const navbarHeight = navbar.offsetHeight;
 
-  const navHeight = navbar.offsetHeight;
-  hero.style.marginTop = navHeight + 'px';
-}
+window.addEventListener('scroll', () => {
+  if(window.scrollY > 0) {
+    navbar.style.position = 'fixed';
+    navbar.style.top = '0';
+    navbar.style.left = '0';
+    navbar.style.width = '100vw';
 
-window.addEventListener('load', adjustHeroMargin);
-window.addEventListener('resize', adjustHeroMargin);
+    placeholder.style.height = `${navbarHeight}px`; // reserve space
+  } else {
+    navbar.style.position = 'relative'; // or original position
+    placeholder.style.height = '0';
+  }
+});
+
