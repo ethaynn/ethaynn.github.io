@@ -390,6 +390,21 @@ h2 {
   box-shadow: 0 10px 30px rgba(0,0,0,0.12);
 }
 
+/* Inline "Discontinued" badge */
+.project-card[data-status="discontinued"] h3::after {
+  content: "Discontinued";
+  display: inline-block;
+  font-size: 12px;
+  line-height: 1;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: #ff4d4d;
+  color: #fff;
+  border: 1px solid #cc0000;
+}
+
 .education-section {
   background-color: var(--background-secondary);
   color: var(--text-color); 
@@ -715,20 +730,4 @@ body, html {
     padding: 0.8rem 0;       /* more padding for tap */
     border-radius: 6px;
   }
-}
-
-.label {
-  display: inline-block;
-  font-size: 0.75rem;
-  padding: 2px 6px;
-  margin-left: 8px;
-  border-radius: 4px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.discontinued {
-  background-color: #ff4d4d;
-  color: #fff;
-  border: 1px solid #cc0000;
 }
